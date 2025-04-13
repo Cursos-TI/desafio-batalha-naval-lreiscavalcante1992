@@ -4,6 +4,8 @@ int main () {
     int tabuleiro [10][10];
     int navioHorizontal [3] = {3, 3, 3};
     int navioVertical[3] = {3, 3, 3};
+    int navioD1[3] = {3,3,3};
+    int navioD2[3] = {3,3,3};
     int i, j;
     //inicializar tabuleiro com água (0)
 
@@ -51,6 +53,18 @@ for ( i = 0; i < 3; i++){
         tabuleiro[linhaV + i] [colunaV] = navioVertical[i];
     }
      
+    // navio diagonal 1(principal): começa em (0,0) - > (2,2)
+    for ( i = 0; i < 3; i++){
+        tabuleiro[0 + i][0 + i] = navioD1[i];
+        }
+
+        //navio diagonal 2 (secundaria):começa em (2,7) -> (0,9)
+        for ( i = 0; i < 3; i++)
+        {
+            tabuleiro[2 - i][7 + i] = navioD2[i];
+        }
+           
+
     //Exibe o tabuleiro com os navios
 
     printf("\nTabuleiro com navios:\n");
@@ -60,17 +74,10 @@ for ( i = 0; i < 3; i++){
 
     printf("\n");
 
-    for ( i = 0; i < 10; i++)
-    {
-        if (i < 9)
-        {
-            printf(" %d", i + 1);
-        }else
-        {
-            printf(" %d", i + 1);
-        }
-        for ( j = 0; j < 10; j++)
-        {
+    for ( i = 0; i < 10; i++) {
+        if (i < 9) printf(" %d", i + 1);
+        else printf(" %d", i + 1);
+        for ( j = 0; j < 10; j++){
             printf(" %d", tabuleiro[i][j]);
         }
         printf("\n");
